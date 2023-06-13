@@ -23,12 +23,14 @@ const App = () => {
 
   // Event handler for withdrawal action
   const handleWithdrawal = () => {
+  // ***TODO***
     // Dispatch withdrawal action with the entered withdrawal amount
      // Reset withdrawal amount after withdrawal action is dispatched
   };
 
   // Event handler for transfer action
   const handleTransfer = () => {
+     // ***TODO***
      // Dispatch transfer action with the entered recipient name and transfer amount
      // Reset recipient name after transfer action is dispatched
      // Reset transfer amount after transfer action is dispatched
