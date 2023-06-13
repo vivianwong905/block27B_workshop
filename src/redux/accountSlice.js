@@ -20,9 +20,11 @@ const accountSlice = createSlice({
       });
     },
     withdrawal: (state, action) => {
+       // ***TODO***
       // Get the withdrawal amount from the action payload
        // Decrease the balance by the withdrawal amount
       state.transactions.push({
+         // ***TODO***
         // Add a new transaction object to the transactions array
           // Action type is "Withdrawal"
          // Withdrawal amount
@@ -31,10 +33,12 @@ const accountSlice = createSlice({
     },
     transfer: (state, action) => {
       const { name, amount } = action.payload; // Get the recipient name and transfer amount from the action payload
+       // ***TODO***
        // Decrease the balance by the transfer amount
       state.transactions.push({
+        // ***TODO***
         // Add a new transaction object to the transactions array
-         `Transfer to ${name}`, // Action type is "Transfer to [Recipient Name]"
+         // Action type is "Transfer to [Recipient Name]"      
          // Transfer amount
          // Updated balance after the transfer
       });
