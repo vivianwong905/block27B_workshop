@@ -7,6 +7,7 @@ import App from './App';
 
 // Create the Redux store
 const store = configureStore({
+   // ***TODO***
   
    // Set the accountReducer as the reducer for the 'account' state
   
@@ -14,5 +15,6 @@ const store = configureStore({
 
 // Render the App component inside the Provider component
 ReactDOM.render(
+   // ***TODO***
   
 );
