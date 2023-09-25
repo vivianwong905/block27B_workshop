@@ -1,4 +1,11 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectBalance,
+  deposit,
+  withdrawal,
+  transfer,
+} from "./transactionsSlice";
 
 import "./transactions.scss";
 
@@ -6,8 +13,10 @@ import "./transactions.scss";
  * Allows users to deposit to, withdraw from, and transfer money from their account.
  */
 export default function Transactions() {
+  // TODO: Dispatch the appropriate transaction action based on `action`
+  const dispatch = useDispatch();
   // TODO: Get the balance from the Redux store using the useSelector hook
-  const balance = 0;
+  const balance = useSelector(selectBalance); // from line 62 transactionSlice.js
 
   const [amountStr, setAmountStr] = useState("0.00");
 
@@ -20,8 +29,15 @@ export default function Transactions() {
     const action = e.nativeEvent.submitter.name;
 
     const amount = +amountStr;
-
-    // TODO: Dispatch the appropriate transaction action based on `action`
+    if (action === "deposit") {
+      dispatch(deposit({ amount }));
+    } else if (action === "withdraw") {
+      dispatch(withdrawal({ amount }));
+    } else if (action === "transfer") {
+      const recipient = e.target.elements["recipient"].value;
+      dispatch(transfer({ amount, name: recipient }));
+    }
+    setAmountStr("0.00");
   };
 
   return (
