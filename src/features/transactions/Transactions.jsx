@@ -36,8 +36,7 @@ export default function Transactions() {
     } else if (action === "transfer") {
       const recipient = e.target.elements["recipient"].value;
       dispatch(transfer({ amount, name: recipient }));
-    }
-    setAmountStr("0.00");
+    } else {setAmountStr("0.00");}
   };
 
   return (
