@@ -47,6 +47,7 @@ const transactionsSlice = createSlice({
       });
     },
     transfer: (state, { payload }) => {
+      // you can also console log state here so see what you need to do
       state.balance -= payload.amount;
       state.history.push({
         type: `transfer ${payload.name}`,

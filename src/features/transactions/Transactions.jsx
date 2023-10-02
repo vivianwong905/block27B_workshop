@@ -16,6 +16,11 @@ export default function Transactions() {
   // TODO: Dispatch the appropriate transaction action based on `action`
   const dispatch = useDispatch();
   // TODO: Get the balance from the Redux store using the useSelector hook
+  /* to access state you can do: const state = useSelector((state) => {
+    return state;
+  }
+  console.log(state.transactions.balance);
+  */
   const balance = useSelector(selectBalance); // from line 62 transactionSlice.js
 
   const [amountStr, setAmountStr] = useState("0.00");
@@ -27,10 +32,22 @@ export default function Transactions() {
     // This changes depending on which button the user clicked to submit the form.
     // It will be either "deposit", "withdraw", or "transfer".
     const action = e.nativeEvent.submitter.name;
+    // you can also console log action above and use switch statement
+    /* switch (action) {
+      case 'deposit':
+        dispatch(deposit({ amount }));
+        break;
+      case 'withdraw':
+        dispatch(withdrawal({ amount }));
+        break
+      case 'transfer':
+        dispatch(transfer({ amount, name: recipient }));
+        break
+    } */
 
     const amount = +amountStr;
     if (action === "deposit") {
-      dispatch(deposit({ amount }));
+      dispatch(deposit({ amount })); // this amount, you get from the payload from slice
     } else if (action === "withdraw") {
       dispatch(withdrawal({ amount }));
     } else if (action === "transfer") {
